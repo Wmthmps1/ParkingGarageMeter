@@ -1,6 +1,11 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@Model Vehicle
 
+<h2>Enter your details</h2>
+
+@*@using (Html.BeginForm("CreateVehicle", "Vehicle", "Post"))
+{
+    <label asp-for="License" class="control-label">License</label>
+    <input type="text" name="License" class="form-control" value="" />
+
+    <input type="submit" value="Submit" class="btn btn-primary" />
+}*@
