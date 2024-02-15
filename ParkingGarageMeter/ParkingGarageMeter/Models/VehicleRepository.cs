@@ -15,10 +15,11 @@ namespace ParkingGarageMeter.Models
 
         public void CreateVehicle(Vehicle vehicle)
         {
-            _conn.Execute("INSERT INTO cars (LICENSE, MAKE, MODEL, COLOR, TIMEPAIDFOR, TIMEPASSED, COST) VALUES " +
-                "(@license, @make, @model, @color, @timePaidFor,@timePassed @cost);",
-            new { license = vehicle.License, make = vehicle.Make, model = vehicle.Model,
-            color = vehicle.Color, timePaidFor = vehicle.TimePaidFor, timePassed = 0, cost = vehicle.Cost});
+
+            _conn.Execute("INSERT INTO CARS (LEVEL, SPOTNUMBER, LICENSE, MAKE, MODEL, COLOR, TIMEPAIDFOR) VALUES " +
+                "(@level, @spotNumber, @license, @make, @model, @color, @timePaidFor);",
+            new { level = vehicle.Level, spotNumber = vehicle.SpotNumber, license = vehicle.License,
+                make = vehicle.Make, model = vehicle.Model,color = vehicle.Color, timePaidFor = vehicle.TimePaidFor});
             
         }
        

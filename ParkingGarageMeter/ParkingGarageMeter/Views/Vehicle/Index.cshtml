@@ -2,10 +2,60 @@
 
 <h2>Enter your details</h2>
 
-@*@using (Html.BeginForm("CreateVehicle", "Vehicle", "Post"))
-{
-    <label asp-for="License" class="control-label">License</label>
-    <input type="text" name="License" class="form-control" value="" />
 
-    <input type="submit" value="Submit" class="btn btn-primary" />
-}*@
+<form asp-action="CreateVehicle" asp-controller="Vehicle">
+    <p>Enter your Row</p>
+    <select class="form-control" name="Level" value="">
+        @for (int i = 0; i < 4; i++)
+        {
+            <option value="@i">@i</option>
+        }
+
+    </select>
+
+    <p>Enter your spot number</p>
+    <select class="form-control" name="SpotNumber" value="">
+        @for (int i = 0; i < 11; i++)
+        {
+            <option value="@i">@i</option>
+        }
+    </select>
+
+
+    <p>License Plate: </p><input type="text" name="License" />
+    <p>Vehicle Make: </p><input type="text" name="Make" />
+    <p>Vehicle Model: </p><input type="text" name="Model" />
+    <p>Vehicle Color: </p><input type="text" name="Color" />
+    <p>How Many Hours: </p>
+    <fieldset id="timePaidFor">
+        <div>
+            <input type="radio" id="option1" name="TimePaidFor" value="1" />
+            <label for="option1">1 hour</label>
+        </div>
+        <div>
+            <input type="radio" id="option2" name="TimePaidFor" value="2" />
+            <label for="option2">2 hours</label>
+        </div>
+        <div>
+            <input type="radio" id="option3" name="TimePaidFor" value="3" />
+            <label for="option3">3 hours</label>
+        </div>
+    </fieldset>
+
+    <input type="submit" value="Register" />
+</form>
+
+@*<option name="Level" value="1">1</option>
+    <option name="Level" value="2">2</option>
+    <option name="Level" value="3">3</option>*@
+
+@*<option name="SpotNumber" value="1">1</option>
+<option name="SpotNumber" value="2">2</option>
+<option name="SpotNumber" value="3">3</option>
+<option name="SpotNumber" value="4">4</option>
+<option name="SpotNumber" value="5">5</option>
+<option name="SpotNumber" value="6">6</option>
+<option name="SpotNumber" value="7">7</option>
+<option name="SpotNumber" value="8">8</option>
+<option name="SpotNumber" value="9">9</option>
+<option name="SpotNumber" value="10">10</option>*@

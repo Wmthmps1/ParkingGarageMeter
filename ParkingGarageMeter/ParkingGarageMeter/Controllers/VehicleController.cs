@@ -21,15 +21,21 @@ namespace ParkingGarageMeter.Controllers
 
         public IActionResult Index()
         {
-            var cars = repo.GetVehicles;
-            return View(cars);
+            
+            return View();
+        }
+
+        public IActionResult ViewAllVehicles()
+        {
+            var vehicles = repo.GetVehicles();
+            return View(vehicles);
         }
 
         public IActionResult CreateVehicle(Vehicle vehicle)
         {
             repo.CreateVehicle(vehicle);
 
-            return RedirectToAction("Index");
+            return RedirectToAction("ViewAllVehicles");
         }
     }
 }

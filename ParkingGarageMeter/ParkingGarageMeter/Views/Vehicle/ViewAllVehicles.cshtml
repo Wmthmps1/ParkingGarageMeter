@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Vehicle>
+
+<table class="table">
+    <tr>
+        <th>Level</th>
+        <th>Spot Number</th>
+        <th>License Plate</th>
+        <th>Make</th>
+        <th>Model</th>
+        <th>Color</th>
+        <th>Time Limit</th>
+
+    </tr>
+
+    @foreach (var vehicle in @Model)
+    {
+        <tr>
+            <td>@vehicle.Level</td>
+            <td>@vehicle.SpotNumber</td>
+            <td>@vehicle.License</td>
+            <td>@vehicle.Make</td>
+            <td>@vehicle.Model</td>
+            <td>@vehicle.Color</td>
+            <td>@vehicle.TimePaidFor</td>
+        </tr>
+    }
+
+</table>
