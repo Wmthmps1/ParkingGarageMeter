@@ -12,7 +12,6 @@ namespace ParkingGarageMeter.Models
         public string Model { get; set; }
         public string Color { get; set; }
 		public int TimePaidFor { get; set; }
-		public int? TimePassed { get; set; }
 		public double Cost { get; set; }
 		public int? TimeElapsed { get; set; }
 

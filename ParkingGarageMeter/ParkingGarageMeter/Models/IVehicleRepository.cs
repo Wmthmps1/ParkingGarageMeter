@@ -6,6 +6,7 @@ namespace ParkingGarageMeter.Models
 		public void CreateVehicle(Vehicle vehicle);
 		public IEnumerable<Vehicle> GetVehicles();
 		public Vehicle GetVehicle();
+		public double CalculatePrice(int time);
 		public int UpdateTimePassed();
 		public bool CheckTime(int timePaid, int timePassed);
 		public double updatePrice(double cost, double timeElapsed);

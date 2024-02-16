@@ -16,16 +16,22 @@ namespace ParkingGarageMeter.Models
         public void CreateVehicle(Vehicle vehicle)
         {
 
-            _conn.Execute("INSERT INTO CARS (LEVEL, SPOTNUMBER, LICENSE, MAKE, MODEL, COLOR, TIMEPAIDFOR) VALUES " +
-                "(@level, @spotNumber, @license, @make, @model, @color, @timePaidFor);",
+            _conn.Execute("INSERT INTO CARS (LEVEL, SPOTNUMBER, LICENSE, MAKE, MODEL, COLOR, TIMEPAIDFOR, COST) VALUES " +
+                "(@level, @spotNumber, @license, @make, @model, @color, @timePaidFor, @cost);",
             new { level = vehicle.Level, spotNumber = vehicle.SpotNumber, license = vehicle.License,
-                make = vehicle.Make, model = vehicle.Model,color = vehicle.Color, timePaidFor = vehicle.TimePaidFor});
+                make = vehicle.Make, model = vehicle.Model,color = vehicle.Color, timePaidFor = vehicle.TimePaidFor,
+            cost = CalculatePrice(vehicle.TimePaidFor)});
             
         }
        
         public IEnumerable<Vehicle> GetVehicles()
         {
             return _conn.Query<Vehicle>("SELECT * FROM CARS;");
+        }
+
+        public double CalculatePrice(int time)
+        {
+            return (time * 5);
         }
 
         public bool CheckTime(int timePaid, int timePassed)
@@ -52,6 +58,8 @@ namespace ParkingGarageMeter.Models
         {
             throw new NotImplementedException();
         }
+
+        
     }
 }
 
