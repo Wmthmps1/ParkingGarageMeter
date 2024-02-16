@@ -39,14 +39,14 @@ namespace ParkingGarageMeter.Models
             throw new NotImplementedException();
         }
 
-        public Vehicle GetVehicle()
+        public Vehicle GetVehicle(Vehicle vehicle)
         {
-            throw new NotImplementedException();
+            return _conn.QuerySingle<Vehicle>("SELECT * FROM CARS WHERE License = @license;", new { license = vehicle.License });
         }
 
-        public void RemoveVehicle(int spotNumber)
+        public void RemoveVehicle(Vehicle vehicle)
         {
-            throw new NotImplementedException();
+            _conn.Execute("DELETE FROM CARS WHERE License = @license;", new { license = vehicle.License });
         }
 
         public double updatePrice(double cost, double timeElapsed)

@@ -5,12 +5,12 @@ namespace ParkingGarageMeter.Models
 	{
 		public void CreateVehicle(Vehicle vehicle);
 		public IEnumerable<Vehicle> GetVehicles();
-		public Vehicle GetVehicle();
+		public Vehicle GetVehicle(Vehicle vehicle);
 		public double CalculatePrice(int time);
 		public int UpdateTimePassed();
 		public bool CheckTime(int timePaid, int timePassed);
 		public double updatePrice(double cost, double timeElapsed);
-		public void RemoveVehicle(int spotNumber);
+		public void RemoveVehicle(Vehicle vehicle);
 	}
 }
 

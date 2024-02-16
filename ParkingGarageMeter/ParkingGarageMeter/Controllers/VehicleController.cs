@@ -21,7 +21,6 @@ namespace ParkingGarageMeter.Controllers
 
         public IActionResult Index()
         {
-            
             return View();
         }
 
@@ -36,6 +35,19 @@ namespace ParkingGarageMeter.Controllers
             repo.CreateVehicle(vehicle);
 
             return RedirectToAction("ViewAllVehicles");
+        }
+
+        public IActionResult Pay(Vehicle vehicleInfo)
+        {
+            Vehicle vehicle = repo.GetVehicle(vehicleInfo);
+            return View(vehicle);
+        }
+
+
+        public IActionResult RemoveVehicle(Vehicle vehicle)
+        {
+            repo.RemoveVehicle(vehicle);
+            return RedirectToAction("Pay");
         }
     }
 }

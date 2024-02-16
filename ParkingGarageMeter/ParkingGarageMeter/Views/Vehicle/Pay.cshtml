@@ -1,0 +1,30 @@
+﻿@model Vehicle
+
+<h1>Your Vehicle Information</h1>
+
+<table class="table">
+    <tr>
+        <th>Level</th>
+        <th>Spot Number</th>
+        <th>License Plate</th>
+        <th>Make</th>
+        <th>Model</th>
+        <th>Color</th>
+        <th>Time Limit</th>
+        <th>Cost</th>
+
+    </tr>
+    
+       
+        <tr>
+            <td>@Model.Level</td>
+            <td>@Model.SpotNumber</td>
+            <td>@Model.License</td>
+            <td>@Model.Make</td>
+            <td>@Model.Model</td>
+            <td>@Model.Color</td>
+            <td>@Model.TimePaidFor</td>
+            <td>@Model.Cost</td>
+        </tr>
+</table>
+
