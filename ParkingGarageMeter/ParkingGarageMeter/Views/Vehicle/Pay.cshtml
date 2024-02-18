@@ -16,15 +16,23 @@
     </tr>
     
        
-        <tr>
-            <td>@Model.Level</td>
-            <td>@Model.SpotNumber</td>
-            <td>@Model.License</td>
-            <td>@Model.Make</td>
-            <td>@Model.Model</td>
-            <td>@Model.Color</td>
-            <td>@Model.TimePaidFor</td>
-            <td>@Model.Cost</td>
-        </tr>
+    <tr>
+        <td>@Model.Level</td>
+        <td>@Model.SpotNumber</td>
+        <td>@Model.License</td>
+        <td>@Model.Make</td>
+        <td>@Model.Model</td>
+        <td>@Model.Color</td>
+        <td>@Model.TimePaidFor</td>
+        <td>@Model.Cost</td>
+        <div style="display: block">
+
+            @using (Html.BeginForm("RemoveVehicle", "Vehicle", "Post"))
+            {
+                <input type="hidden" asp-for="License" value="@Model.License" />
+                <input type="submit" value="Pay @Model.Cost" />
+            }
+        </div>
+    </tr>
 </table>
 

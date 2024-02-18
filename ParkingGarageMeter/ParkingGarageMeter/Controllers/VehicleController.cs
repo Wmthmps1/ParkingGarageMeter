@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using ParkingGarageMeter.Models;
 
-// For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+
 
 namespace ParkingGarageMeter.Controllers
 {
@@ -37,9 +37,9 @@ namespace ParkingGarageMeter.Controllers
             return RedirectToAction("ViewAllVehicles");
         }
 
-        public IActionResult Pay(Vehicle vehicleInfo)
+        public IActionResult Pay(string license)
         {
-            Vehicle vehicle = repo.GetVehicle(vehicleInfo);
+            var vehicle = repo.GetVehicle(license);
             return View(vehicle);
         }
 
@@ -47,7 +47,7 @@ namespace ParkingGarageMeter.Controllers
         public IActionResult RemoveVehicle(Vehicle vehicle)
         {
             repo.RemoveVehicle(vehicle);
-            return RedirectToAction("Pay");
+            return RedirectToAction("ViewAllVehicles");
         }
     }
 }

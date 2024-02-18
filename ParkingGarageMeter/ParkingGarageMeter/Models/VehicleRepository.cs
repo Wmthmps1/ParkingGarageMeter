@@ -39,9 +39,9 @@ namespace ParkingGarageMeter.Models
             throw new NotImplementedException();
         }
 
-        public Vehicle GetVehicle(Vehicle vehicle)
+        public Vehicle GetVehicle(string license)
         {
-            return _conn.QuerySingle<Vehicle>("SELECT * FROM CARS WHERE License = @license;", new { license = vehicle.License });
+            return _conn.QueryFirst<Vehicle>("SELECT * FROM CARS WHERE LICENSE = @license", new { license = license });
         }
 
         public void RemoveVehicle(Vehicle vehicle)

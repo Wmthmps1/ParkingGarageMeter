@@ -6,7 +6,7 @@
 <form asp-action="CreateVehicle" asp-controller="Vehicle">
     <p>Enter your Row</p>
     <select class="form-control" name="Level" value="">
-        @for (int i = 0; i < 4; i++)
+        @for (int i = 1; i < 4; i++)
         {
             <option value="@i">@i</option>
         }
@@ -15,7 +15,7 @@
 
     <p>Enter your spot number</p>
     <select class="form-control" name="SpotNumber" value="">
-        @for (int i = 0; i < 11; i++)
+        @for (int i = 1; i < 11; i++)
         {
             <option value="@i">@i</option>
         }
